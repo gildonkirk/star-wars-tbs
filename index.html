@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Star Wars RPG</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+	<header>Star Wars RPG</header>
+
+	<!-- Holds Initial Characters -->
+	<div class="charSelect">
+		<img class="char char1" src="assets/images/char1.jpg">
+		<img class="char char2" src="assets/images/char2.jpg">
+		<img class="char char3" src="assets/images/char3.jpg">
+		<img class="char char4" src="assets/images/char4.jpg">
+	</div>
+
+	<!-- Holds Your Character -->
+	<div class="charContain">
+		<p>Your Character</p>
+		<div class="yourChar"></div>
+	</div>
+
+	<!-- Holds Enemies Available -->
+	<div class="enemyContain">
+		<p>Enemies Available to Attack</p>
+		<div class="enemies"></div>
+	</div>
+	
+	<!-- Holds Fighting Elements -->
+	<div class="fightContain">
+		<p>Fight Section</p>
+		<button>Attack</button>
+
+		<!-- Holds Defender -->
+		<div class="defendContain">
+			<p>Defender</p>
+			<div class="defender"></div>
+		</div>
+	</div>
+
+<script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>
