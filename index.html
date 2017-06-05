@@ -11,11 +11,13 @@
 	<header>Star Wars RPG</header>
 
 	<!-- Holds Initial Characters -->
-	<div class="charSelect">
-		<img class="char char1" src="assets/images/char1.jpg">
-		<img class="char char2" src="assets/images/char2.jpg">
-		<img class="char char3" src="assets/images/char3.jpg">
-		<img class="char char4" src="assets/images/char4.jpg">
+	<div class="charSelectContain">
+		<div class='charSelect'>
+			<img class="char avail" id="luke" src="assets/images/char1.jpg">
+			<img class="char avail" id="obiWan" src="assets/images/char2.jpg">
+			<img class="char avail" id="mal" src="assets/images/char3.jpg">
+			<img class="char avail" id="sidious" src="assets/images/char4.jpg">
+		</div>
 	</div>
 
 	<!-- Holds Your Character -->
@@ -33,7 +35,7 @@
 	<!-- Holds Fighting Elements -->
 	<div class="fightContain">
 		<p>Fight Section</p>
-		<button>Attack</button>
+		<button class="attkBtn">Attack</button>
 
 		<!-- Holds Defender -->
 		<div class="defendContain">
@@ -47,7 +49,9 @@
 	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	crossorigin="anonymous">
 </script>
+
 <script type="text/javascript" src="assets/javascript/game.js"></script>
+
 </body>
 
 </html>
