@@ -44,39 +44,48 @@ $(document).ready(function() {
 		console.log(characterChoice.hp);
 		$('.char').off();
 
-		$('.enemies').on('click', '.avail', function(){
-		var defenderChoice = $(this);
-		$(this).appendTo('.defender');
-		$(this).addClass('villain');
-		if (defenderChoice.is('#luke')) {
-			var defenderChoice = luke;
-		} else if (defenderChoice.is('#obiWan')) {
-			var defenderChoice = obiWan;
-		} else if (defenderChoice.is('#mal')) {
-			var defenderChoice = mal;
-		} else {
-			var defenderChoice = sidious;
-		};
-		console.log(defenderChoice.hp);
+			$('.enemies').on('click', '.avail', function(){
+			var defenderChoice = $(this);
+			$(this).appendTo('.defender');
+			$(this).addClass('villain');
+			if (defenderChoice.is('#luke')) {
+				var defenderChoice = luke;
+			} else if (defenderChoice.is('#obiWan')) {
+				var defenderChoice = obiWan;
+			} else if (defenderChoice.is('#mal')) {
+				var defenderChoice = mal;
+			} else {
+				var defenderChoice = sidious;
+			};
+			console.log(defenderChoice.hp);
 
-		$('.attkBtn').on('click', function (){
-		if(defenderChoice.hp > 0 && characterChoice.hp > 0){
-			defenderChoice.hp = defenderChoice.hp - characterChoice.attack;
-			characterChoice.hp = characterChoice.hp - defenderChoice.ca;
-		} else if (defenderChoice.hp <= 0){
-			$('.villain').remove();
-		} else {
-			$('.fightSection').after('<p>You Lose!</p>');
-		}
-		console.log(characterChoice.hp);
-		console.log(defenderChoice.hp);
-	});
+			var attackPower = characterChoice.attack
+				$('.attkBtn').on('click', function (){
+					
+					if(defenderChoice.hp > 0 && characterChoice.hp > 0){
+						defenderChoice.hp = defenderChoice.hp - characterChoice.attack;
+						console.log(defenderChoice.hp);
+						characterChoice.hp = characterChoice.hp - defenderChoice.ca;
+						console.log(characterChoice.hp);
+						characterChoice.attack = characterChoice.attack + attackPower;
+					}
+
+					if (defenderChoice.hp < 1){
+						$('.villain').remove();
+
+					} else if (characterChoice.hp < 1) {
+						$('.fightSection').after('<p>You Lose!</p>');
+					}
+
+				});
+
+				
+		
+		});
+
 	});
 
 	
-
-	
-	});
 	// $('.enemiesAvailable').on('click', function(){
 	// 	$
 	// )};
