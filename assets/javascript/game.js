@@ -21,9 +21,6 @@ $(document).ready(function() {
 	};
 	var characterChoice = '';
 	var defenderChoice = '';
-	// shows whether it is your turn or defenders turn to attack
-	var isAttacking = true; 
-
 
 	$('.char').on('click', function (){
 		var characterChoice = $(this);
@@ -44,31 +41,31 @@ $(document).ready(function() {
 		console.log(characterChoice.hp);
 		$('.char').off();
 
-			$('.enemies').on('click', '.avail', function(){
-			var defenderChoice = $(this);
-			$(this).appendTo('.defender');
-			$(this).addClass('villain');
-			if (defenderChoice.is('#luke')) {
-				var defenderChoice = luke;
-			} else if (defenderChoice.is('#obiWan')) {
-				var defenderChoice = obiWan;
-			} else if (defenderChoice.is('#mal')) {
-				var defenderChoice = mal;
-			} else {
-				var defenderChoice = sidious;
-			};
-			console.log(defenderChoice.hp);
+		var attackPower = characterChoice.attack
+		$('.enemies').on('click', '.avail', function(){
+		var defenderChoice = $(this);
+		$(this).appendTo('.defender');
+		$(this).addClass('villain');
+		if (defenderChoice.is('#luke')) {
+			var defenderChoice = luke;
+		} else if (defenderChoice.is('#obiWan')) {
+			var defenderChoice = obiWan;
+		} else if (defenderChoice.is('#mal')) {
+			var defenderChoice = mal;
+		} else {
+			var defenderChoice = sidious;
+		};
+		console.log(defenderChoice.hp);
 
-			var attackPower = characterChoice.attack
-				$('.attkBtn').on('click', function (){
-					
-					if(defenderChoice.hp > 0 && characterChoice.hp > 0){
-						defenderChoice.hp = defenderChoice.hp - characterChoice.attack;
-						console.log(defenderChoice.hp);
-						characterChoice.hp = characterChoice.hp - defenderChoice.ca;
-						console.log(characterChoice.hp);
-						characterChoice.attack = characterChoice.attack + attackPower;
-					}
+			
+			$('.attkBtn').on('click', function (){
+				
+				if(defenderChoice.hp > 0 && characterChoice.hp > 0){
+					defenderChoice.hp = defenderChoice.hp - characterChoice.attack;
+					console.log(defenderChoice.hp);
+					characterChoice.hp = characterChoice.hp - defenderChoice.ca;
+					console.log(characterChoice.hp);
+					characterChoice.attack = characterChoice.attack + attackPower;
 
 					if (defenderChoice.hp < 1){
 						$('.villain').remove();
@@ -76,21 +73,8 @@ $(document).ready(function() {
 					} else if (characterChoice.hp < 1) {
 						$('.fightSection').after('<p>You Lose!</p>');
 					}
-
-				});
-
-				
-		
+				}
+			});
 		});
-
 	});
-
-	
-	// $('.enemiesAvailable').on('click', function(){
-	// 	$
-	// )};
-	// $('.char').on('click', function(){
-	// 	$(this).appendTo('.defender');
-	// 	$('.charSelect').off();
-	// });
 });
