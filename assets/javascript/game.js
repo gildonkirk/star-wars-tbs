@@ -21,6 +21,8 @@ $(document).ready(function() {
 	};
 	var characterChoice = '';
 	var defenderChoice = '';
+	var heroHealth = '';
+	var villainHealth = ''
 
 	$('.char').on('click', function (){
 		var characterChoice = $(this);
@@ -69,12 +71,17 @@ $(document).ready(function() {
 
 					if (defenderChoice.hp < 1){
 						$('.villain').remove();
+					} 
 
-					} else if (characterChoice.hp < 1) {
+					if (characterChoice.hp < 1) {
 						$('.fightSection').after('<p>You Lose!</p>');
 					}
 				}
 			});
+			// heroHealth = characterChoice.hp
+			// $('.heroHealth').html('Hero Health: ' + heroHealth)
+			// villainHealth = defenderChoice.hp
+			// $('villainHealth').html('Villain Health: ' + villainHealth)
 		});
 	});
 });
