@@ -93,10 +93,14 @@ function battle() {
 		if(villainHealth > 0 && heroHealth > 0){
 			villainHealth = villainHealth - attackPower;
 			console.log(`Enemy HP: ${villainHealth}`);
-			heroHealth = heroHealth - caPower;
+			if(villainHealth > 0) {
+				heroHealth = heroHealth - caPower;
+			}
 			console.log(`Hero HP: ${heroHealth}`);
 			attackPower = attackPower + attackPower;
 			console.log(`Attack Power: ${attackPower}`);
+		} else if(heroHealth > 0 && villainHealth <= 0){
+			enemyChoosing();
 		}
 	});
 };
