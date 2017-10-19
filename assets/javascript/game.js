@@ -11,7 +11,7 @@ var obiWan = {
 var mal = {
 	hp: 180,
 	attack: 5,
-	ca: 25
+	ca: 40
 };
 var sidious = {
 	hp: 150,
@@ -95,6 +95,7 @@ function battle() {
 			console.log(`Enemy HP: ${villainHealth}`);
 			if(villainHealth > 0) {
 				heroHealth = heroHealth - caPower;
+				gameOver();
 			}
 			console.log(`Hero HP: ${heroHealth}`);
 			attackPower = attackPower + attackPower;
@@ -103,4 +104,10 @@ function battle() {
 			enemyChoosing();
 		}
 	});
+};
+
+function gameOver() {
+	if(villainHealth > 0 && heroHealth <= 0){
+		console.log('Game Over');
+	}
 };
