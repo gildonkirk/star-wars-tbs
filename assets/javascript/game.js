@@ -92,22 +92,30 @@ function battle() {
 	$('.attkBtn').on('click', function (){
 		if(villainHealth > 0 && heroHealth > 0){
 			villainHealth = villainHealth - attackPower;
+			villainDead();
 			console.log(`Enemy HP: ${villainHealth}`);
 			if(villainHealth > 0) {
 				heroHealth = heroHealth - caPower;
+				console.log(`Hero HP: ${heroHealth}`);
 				gameOver();
 			}
-			console.log(`Hero HP: ${heroHealth}`);
 			attackPower = attackPower + attackPower;
 			console.log(`Attack Power: ${attackPower}`);
-		} else if(heroHealth > 0 && villainHealth <= 0){
-			enemyChoosing();
 		}
 	});
 };
 
+function villainDead() {
+	if(heroHealth > 0 && villainHealth <= 0) {
+		$('.villainToAttack').hide();
+		$('.villainToAttack').removeClass('.villainToAttack');
+		enemyChoosing();
+	}
+}
+
 function gameOver() {
 	if(villainHealth > 0 && heroHealth <= 0){
+		$('.hero').hide();
 		console.log('Game Over');
 	}
 };
