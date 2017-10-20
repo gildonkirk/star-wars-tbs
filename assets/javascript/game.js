@@ -83,7 +83,8 @@ function enemyChoosing() {
 		};
 		caPower = defenderChoice.ca;
 		villainHealth = defenderChoice.hp;
-		console.log(`Enemy HP: ${villainHealth}`);
+		$('.heroScore').html(`${heroHealth}`);
+		$('.villainScore').html(`${villainHealth}`);
 		$('.attkBtn').show();
 	});
 };
@@ -92,11 +93,14 @@ function battle() {
 	$('.attkBtn').on('click', function (){
 		if(villainHealth > 0 && heroHealth > 0){
 			villainHealth = villainHealth - attackPower;
+			if(villainHealth < 0) {
+				villainHealth = 0;
+			}
+			$('.villainScore').html(`${villainHealth}`);
 			villainDead();
-			console.log(`Enemy HP: ${villainHealth}`);
 			if(villainHealth > 0) {
 				heroHealth = heroHealth - caPower;
-				console.log(`Hero HP: ${heroHealth}`);
+				$('.heroScore').html(`${heroHealth}`);
 				gameOver();
 			}
 			attackPower = attackPower + attackPower;
