@@ -4,17 +4,17 @@ var luke = {
 	ca: 5
 };
 var obiWan = {
-	hp: 120,
+	hp: 100,
 	attack: 8,
 	ca: 10
 };
 var mal = {
-	hp: 180,
+	hp: 220,
 	attack: 5,
 	ca: 40
 };
 var sidious = {
-	hp: 150,
+	hp: 500,
 	attack: 5,
 	ca: 20
 };
