@@ -52,6 +52,7 @@ header {
 }
 
 button {
+	margin-left: 9px;
   margin-bottom: 10px;
   width: 13%;
   padding: 8px 0;
@@ -79,10 +80,20 @@ button {
 	color: #ffffff;
 }
 
+.score, .scoreHeader {
+	margin-left: 9px
+}
+
+.scoreHeader {
+	margin-bottom: 2px;
+}
+
 .score {
 	color: #ffffff;
 	font-size: 16pt;
+	margin-bottom: 7px;
 }
+
 
 /*@media screen and (max-width: 1212px) {
 	.char {
