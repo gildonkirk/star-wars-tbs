@@ -123,7 +123,6 @@ function villainDead() {
 
 function gameOver() {
 	if(villainHealth > 0 && heroHealth <= 0){
-		$('.hero').hide();
-		console.log('Game Over');
+		$('.bodyContainer').html('<div>You Lose</p>');
 	}
 };

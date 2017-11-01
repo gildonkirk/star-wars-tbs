@@ -18,9 +18,13 @@ header {
 	color: #FFDC00;
 }
 
+.defender {
+	margin-bottom: 10px;
+}
+
 .charSelect {
 	width: 100%;
-	margin-bottom: 10px
+	margin-bottom: 10px;
 }
 
 .char {
@@ -72,8 +76,12 @@ button {
 }
 
 .scoreTitle {
-	margin: 0 0 10px 0;
+	margin: 0;
 	font-size: 16pt;
+}
+
+.scoreContainer {
+	background-color: #111111;
 }
 
 .scoreHeader {
@@ -92,6 +100,21 @@ button {
 	color: #ffffff;
 	font-size: 16pt;
 	margin-bottom: 7px;
+}
+
+.attkBtn {
+	margin: 0 6.8% 0 6.8%;
+}
+
+.hpContainer {
+	border: 1px solid #ffdc00;
+	background-color: #111111;
+}
+
+.hpContainerHero {
+	float: left;
+	margin: 0 15px 0 0;
+	width: 50%
 }
 
 
