@@ -103,7 +103,8 @@ button {
 }
 
 .attkBtn {
-	margin: 0 6.8% 0 6.8%;
+	margin: 0 20px 0 6.8%;
+	float: left;
 }
 
 .hpContainer {
@@ -115,6 +116,17 @@ button {
 	float: left;
 	margin: 0 15px 0 0;
 	width: 50%
+}
+
+.gameOverModal {
+	color: #FFDC00;
+	margin-top: 10px;
+	font-size: 24pt;
+	font-family: 'Days One', sans-serif;
+	text-align: center;
+	background-color: #111111;
+  padding: 3em;
+  margin: 10% 26%;
 }
 
 

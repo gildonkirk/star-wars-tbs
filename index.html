@@ -12,59 +12,61 @@
 <body>
 	<header>Star Wars RPG</header>
 	<div class="bodyContainer">
-		<!-- Holds Initial Characters -->
-		<div class="charSelectContain">
-			<div class='charSelect'>
-				<img class="char avail" id="luke" src="assets/images/char1.jpg">
-				<img class="char avail" id="sidious" src="assets/images/char4.jpg">
-				<img class="char avail" id="mal" src="assets/images/char3.jpg">
-				<img class="char avail" id="obiWan" src="assets/images/char2.jpg">
-			</div>
-		</div>
-
-		<!-- Holds Your Character -->
-		<div class="charContain">
-			<p class="title">Your Character</p>
-			<div class="yourChar"></div>
-		</div>
-
-		<!-- Holds Enemies Available -->
-		<div class="enemyContain">
-			<p class="title">Enemies Available to Attack</p>
-			<div class="enemies"></div>
-		</div>
-
-		<!-- Holds Defender -->
-		<div class="defendContain">
-			<p class="title">Defender</p>
-			<div class="defender"></div>
-		</div>
-
-		<!-- Holds Scoring -->
-		<div class="scoreContainer">
-			<p class="title scoreTitle">Score</p>
-			<div class="hpContainer hpContainerHero">
-				<div class="scoreTextContainer heroHpTextContainer">
-					<p class="heroScoreTitle scoreHeader">Hero HP:</p>
-					<p class="score heroScore">0</p>
-				</div>
-				<div class="scoreTextContainer heroAttackTextContainer">
-					<p class="heroAttackTitle scoreHeader">Hero Attack:</p>
-					<p class="score heroAttack">0</p>
+		<div class="gameContainer"
+			<!-- Holds Initial Characters -->
+			<div class="charSelectContain">
+				<div class="charSelect">
+					<img class="char avail" id="luke" src="assets/images/char1.jpg">
+					<img class="char avail" id="sidious" src="assets/images/char4.jpg">
+					<img class="char avail" id="mal" src="assets/images/char3.jpg">
+					<img class="char avail" id="obiWan" src="assets/images/char2.jpg">
 				</div>
 			</div>
-			<div class="hpContainer hpContainerVillain">
-				<div class="scoreTextContainer villainHpTextContainer">
-					<p class="VillainScoreTitle scoreHeader">Villain HP:</p>
-					<p class="score villainScore">0</p>
+
+			<!-- Holds Your Character -->
+			<div class="charContain">
+				<p class="title">Your Character</p>
+				<div class="yourChar"></div>
+			</div>
+
+			<!-- Holds Enemies Available -->
+			<div class="enemyContain">
+				<p class="title">Enemies Available to Attack</p>
+				<div class="enemies"></div>
+			</div>
+
+			<!-- Holds Defender -->
+			<div class="defendContain">
+				<p class="title">Defender</p>
+				<div class="defender"></div>
+			</div>
+
+			<!-- Holds Scoring -->
+			<div class="scoreContainer">
+				<p class="title scoreTitle">Score</p>
+				<div class="hpContainer hpContainerHero">
+					<div class="scoreTextContainer heroHpTextContainer">
+						<p class="heroScoreTitle scoreHeader">Hero HP:</p>
+						<p class="score heroScore">0</p>
+					</div>
+					<div class="scoreTextContainer heroAttackTextContainer">
+						<p class="heroAttackTitle scoreHeader">Hero Attack:</p>
+						<p class="score heroAttack">0</p>
+					</div>
 				</div>
-				<div class="scoreTextContainer villainAttackTextContainer">
-					<p class="villainAttackTitle scoreHeader">Villain Attack:</p>
-					<p class="score villainAttack">0</p>
+				<div class="hpContainer hpContainerVillain">
+					<div class="scoreTextContainer villainHpTextContainer">
+						<p class="VillainScoreTitle scoreHeader">Villain HP:</p>
+						<p class="score villainScore">0</p>
+					</div>
+					<div class="scoreTextContainer villainAttackTextContainer">
+						<p class="villainAttackTitle scoreHeader">Villain Attack:</p>
+						<p class="score villainAttack">0</p>
+					</div>
 				</div>
 			</div>
+			<button class="attkBtn">Attack</button>
 		</div>
-		<button class="attkBtn">Attack</button>
 	</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

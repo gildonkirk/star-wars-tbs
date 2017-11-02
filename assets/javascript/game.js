@@ -26,6 +26,7 @@ var heroHealth = 0;
 var villainHealth = 0;
 var characterChosen = false;
 var enemyChosen = false;
+var enemiesBeaten = 0;
 characterChoosing();
 enemyChoosing();
 battle();
@@ -105,7 +106,7 @@ function battle() {
 					heroHealth = 0;
 				}
 				$('.heroScore').html(`${heroHealth}`);
-				gameOver();
+				gameOverLose();
 			}
 			attackPower = attackPower + attackPower;
 			$('.heroAttack').html(`${attackPower}`);
@@ -117,12 +118,22 @@ function villainDead() {
 	if(heroHealth > 0 && villainHealth <= 0) {
 		$('.villainToAttack').hide();
 		$('.villainToAttack').removeClass('.villainToAttack');
+		enemiesBeaten++;
+		gameOverWin();
 		enemyChoosing();
 	}
 }
 
-function gameOver() {
+function gameOverLose() {
 	if(villainHealth > 0 && heroHealth <= 0){
-		$('.bodyContainer').html('<div>You Lose</p>');
+		$('.gameContainer').after('<div class="gameOverModal youLose">You Lose!</div>');
+		$('.gameContainer').hide();
+	}
+};
+
+function gameOverWin() {
+	if(heroHealth > 0 && villainHealth <= 0 && enemiesBeaten === 3){
+		$('.gameContainer').after('<div class="gameOverModal youWin">You Win!</div>');
+		$('.gameContainer').hide();
 	}
 };
