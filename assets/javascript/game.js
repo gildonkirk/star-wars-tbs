@@ -70,16 +70,27 @@ function characterChoosing() {
 function enemyChoosing() {
 	$(document).on('click', '.villain', function(event){
 		var defenderChoice = $(event.target);
-		$(defenderChoice).appendTo('.defender');
 		$(defenderChoice).addClass('villainToAttack');
 		if (defenderChoice.is('#luke')) {
 			var defenderChoice = luke;
+			$('#obiWan').removeClass('villainToAttack');
+			$('#mal').removeClass('villainToAttack');
+			$('#sidious').removeClass('villainToAttack');
 		} else if (defenderChoice.is('#obiWan')) {
 			var defenderChoice = obiWan;
+			$('#luke').removeClass('villainToAttack');
+			$('#mal').removeClass('villainToAttack');
+			$('#sidious').removeClass('villainToAttack');
 		} else if (defenderChoice.is('#mal')) {
 			var defenderChoice = mal;
+			$('#obiWan').removeClass('villainToAttack');
+			$('#luke').removeClass('villainToAttack');
+			$('#sidious').removeClass('villainToAttack');
 		} else {
 			var defenderChoice = sidious;
+			$('#obiWan').removeClass('villainToAttack');
+			$('#mal').removeClass('villainToAttack');
+			$('#luke').removeClass('villainToAttack');
 		};
 		caPower = defenderChoice.ca;
 		villainHealth = defenderChoice.hp;
