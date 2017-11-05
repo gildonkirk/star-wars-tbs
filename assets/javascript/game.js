@@ -27,13 +27,19 @@ var villainHealth = 0;
 var characterChosen = false;
 var enemyChosen = false;
 var enemiesBeaten = 0;
+$('.attkBtn').hide();
+$('.charContain').hide();
+$('.enemyContain').hide();
+$('.scoreContainer').hide();
 characterChoosing();
 enemyChoosing();
 battle();
 
 function characterChoosing() {
-	$('.attkBtn').hide();
 	$(document).on('click', '.avail', function (event){
+		$('.charContain').show();
+		$('.enemyContain').show();
+		$('.scoreContainer').show();
 		var characterChoice = $(event.target);
 		$('.yourChar').append(characterChoice);
 		$('.avail').removeClass('avail');
@@ -68,6 +74,7 @@ function characterChoosing() {
 		heroHealth = characterChoice.hp;
 		$('.heroScore').html(`${heroHealth}`);
 		$('.heroAttack').html(`${attackPower}`);
+		$('.instructions').text('Choose Your Villain');
 	})
 };
 
@@ -105,6 +112,8 @@ function enemyChoosing() {
 		$('.villainScore').html(`${villainHealth}`);
 		$('.villainAttack').html(`${caPower}`);
 		$('.attkBtn').show();
+		$('.instructions').html('When you attack, the enemy will respond!');
+
 	});
 };
 
@@ -145,6 +154,7 @@ function gameOverLose() {
 	if(villainHealth > 0 && heroHealth <= 0){
 		$('.gameContainer').after('<div class="gameOverModal youLose"><p class="gameOverText">You Lose!</p><button class="gameOverButton">Play Again?</button></div>');
 		$('.gameContainer').hide();
+		$('.instructions').hide();
 		restartGame();
 	}
 };
@@ -153,6 +163,7 @@ function gameOverWin() {
 	if(heroHealth > 0 && villainHealth <= 0 && enemiesBeaten === 3){
 		$('.gameContainer').after('<div class="gameOverModal youWin"><p class="gameOverText">You Win!</p><button class="gameOverButton">Play Again?</button></div>');
 		$('.gameContainer').hide();
+		$('.instructions').hide();
 		restartGame();
 	}
 };
@@ -160,11 +171,13 @@ function gameOverWin() {
 function restartGame() {
 	$('.gameOverButton').on('click', function () {
 		$('.gameOverModal').hide();
+		$('.instructions').show();
 		$('.gameContainer').show();
 		$('.char').show();
 		$('.charSelect').append($('.char'));
 		$('.char').removeClass('hero').removeClass('villain').removeClass('villainToAttack');
 		$('.char').addClass('avail');
+		$('.instructions').text('Choose Your Hero');
 		$('.villainNameTitle').text('Villain');
 		$('.heroNameTitle').text('Hero');
 		$('.heroScore').text(0);

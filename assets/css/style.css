@@ -146,6 +146,15 @@ button {
 	font-family: 'Days One', sans-serif;
 }
 
+.instructions {
+	text-align: center;
+	background-color: #FFDC00;
+	margin: 0 6.8% 10px 6.8%;
+	font-size: 20pt;
+	color: #111111;
+	font-family: 'Days One', sans-serif;
+}
+
 
 /*@media screen and (max-width: 1212px) {
 	.char {
