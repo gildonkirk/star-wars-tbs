@@ -140,6 +140,12 @@ button {
 	margin-bottom: 10px;
 }
 
+.charName {
+	font-size: 20pt;
+	color: #FFDC00;
+	font-family: 'Days One', sans-serif;
+}
+
 
 /*@media screen and (max-width: 1212px) {
 	.char {
