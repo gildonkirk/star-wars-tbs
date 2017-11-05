@@ -33,47 +33,45 @@ battle();
 
 function characterChoosing() {
 	$('.attkBtn').hide();
-	$('.char').on('click', function (){
-		var characterChoice = $(this);
-		$(this).appendTo('.yourChar');
-		$(this).removeClass('.avail');
-		$(this).addClass('hero');
-		$('.charSelect').appendTo('.enemies');
+	$(document).on('click', '.avail', function (event){
+		var characterChoice = $(event.target);
+		$('.yourChar').append(characterChoice);
+		$('.avail').removeClass('avail');
+		$(characterChoice).addClass('hero');
 
 		if (characterChoice.is('#luke')) {
-			$('#obiWan').addClass('villain');
-			$('#mal').addClass('villain');
-			$('#sidious').addClass('villain');
+			$('#obiWan').addClass('villain').appendTo('.enemies');
+			$('#mal').addClass('villain').appendTo('.enemies');
+			$('#sidious').addClass('villain').appendTo('.enemies');
 			var characterChoice = luke;
 		} else if (characterChoice.is('#obiWan')) {
-			$('#luke').addClass('villain');
-			$('#mal').addClass('villain');
-			$('#sidious').addClass('villain');
+			$('#luke').addClass('villain').appendTo('.enemies');
+			$('#mal').addClass('villain').appendTo('.enemies');
+			$('#sidious').addClass('villain').appendTo('.enemies');
 			var characterChoice = obiWan;
 		} else if (characterChoice.is('#mal')) {
-			$('#obiWan').addClass('villain');
-			$('#luke').addClass('villain');
-			$('#sidious').addClass('villain');
+			$('#obiWan').addClass('villain').appendTo('.enemies');
+			$('#luke').addClass('villain').appendTo('.enemies');
+			$('#sidious').addClass('villain').appendTo('.enemies');
 			var characterChoice = mal;
 		} else {
-			$('#obiWan').addClass('villain');
-			$('#mal').addClass('villain');
-			$('#luke').addClass('villain');
+			$('#obiWan').addClass('villain').appendTo('.enemies');
+			$('#mal').addClass('villain').appendTo('.enemies');
+			$('#luke').addClass('villain').appendTo('.enemies');
 			var characterChoice = sidious;
 		};
 		attackPower = characterChoice.attack;
 		heroHealth = characterChoice.hp;
 		$('.heroScore').html(`${heroHealth}`);
 		$('.heroAttack').html(`${attackPower}`);
-		$('.char').off();
 	})
 };
 
 function enemyChoosing() {
-	$(document).on('click', '.villain', function(){
-		var defenderChoice = $(this);
-		$(this).appendTo('.defender');
-		$(this).addClass('villainToAttack');
+	$(document).on('click', '.villain', function(event){
+		var defenderChoice = $(event.target);
+		$(defenderChoice).appendTo('.defender');
+		$(defenderChoice).addClass('villainToAttack');
 		if (defenderChoice.is('#luke')) {
 			var defenderChoice = luke;
 		} else if (defenderChoice.is('#obiWan')) {
@@ -106,7 +104,7 @@ function battle() {
 					heroHealth = 0;
 				}
 				$('.heroScore').html(`${heroHealth}`);
-				gameOverLose();
+				// gameOverLose();
 			}
 			attackPower = attackPower + attackPower;
 			$('.heroAttack').html(`${attackPower}`);
@@ -119,21 +117,30 @@ function villainDead() {
 		$('.villainToAttack').hide();
 		$('.villainToAttack').removeClass('.villainToAttack');
 		enemiesBeaten++;
-		gameOverWin();
+		// gameOverWin();
 		enemyChoosing();
 	}
 }
 
 function gameOverLose() {
 	if(villainHealth > 0 && heroHealth <= 0){
-		$('.gameContainer').after('<div class="gameOverModal youLose">You Lose!</div>');
+		$('.gameContainer').after('<div class="gameOverModal youLose"><p class="gameOverText">You Lose!</p><button class="gameOverButton">Play Again?</button></div>');
 		$('.gameContainer').hide();
+		// restartGame();
 	}
 };
 
 function gameOverWin() {
 	if(heroHealth > 0 && villainHealth <= 0 && enemiesBeaten === 3){
-		$('.gameContainer').after('<div class="gameOverModal youWin">You Win!</div>');
+		$('.gameContainer').after('<div class="gameOverModal youWin"><p class="gameOverText">You Win!</p><button class="gameOverButton">Play Again?</button></div>');
 		$('.gameContainer').hide();
+		// restartGame();
 	}
 };
+
+function restartGame() {
+	$('.gameOverButton').on('click', function () {
+		$('.charSelect').append('.villain');
+		$('.gameContainer').show();
+	})
+}

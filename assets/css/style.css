@@ -121,12 +121,23 @@ button {
 .gameOverModal {
 	color: #FFDC00;
 	margin-top: 10px;
-	font-size: 24pt;
-	font-family: 'Days One', sans-serif;
 	text-align: center;
 	background-color: #111111;
   padding: 3em;
   margin: 10% 26%;
+}
+
+.gameOverText {
+	font-size: 24pt;
+	font-family: 'Days One', sans-serif;
+}
+
+.gameOverButton {
+	width: 30%
+}
+
+.villain {
+	margin-bottom: 10px;
 }
 
 
