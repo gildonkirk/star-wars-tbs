@@ -124,7 +124,7 @@ function enemyChoosing() {
 		$('.villainScore').html(`${villainHealth}`);
 		$('.villainAttack').html(`${caPower}`);
 		$('.attkBtn').show();
-		$('.instructions').html('When you attack, the enemy will respond.<br>However, the longer you survive, the stronger you become!');
+		$('.instructions').html('When you attack, the enemy will strike back!');
 		$('.enemies').prepend($('.villainToAttack').parent());
 		$('.villainToAttack').parent().removeClass('img-hover');
 	});
