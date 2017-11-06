@@ -22,23 +22,12 @@ header {
 	margin-bottom: 10px;
 }
 
-.charSelect {
-	width: 100%;
-	margin-bottom: 10px;
-}
-
-.char {
-	width: 11.1%;
-  margin: 0px 6.8%;
-}
-
 .title {
 	background-color: #ffdc00;
 	text-align: center;
 	font-family: 'Yantramanav', sans-serif;
 	color: #111111;
 	font-size: 16pt;
-	margin: 0 6.8%;
 	margin-bottom: 10px;
 	padding: 5px 0;
 }
@@ -48,7 +37,6 @@ header {
 }
 
 .health {
-	margin: 0 6.8%;
 	font-family: 'Yantramanav', sans-serif;
 	font-size: 16pt;
 	margin-bottom: 10px;
@@ -67,12 +55,11 @@ button {
 	color: #ffffff;
 	font-size: 14pt;
 	font-family: 'Yantramanav', sans-serif;
-	margin: 0 6.8%;
 }
 
 .scoreContainer {
 	border: 3px solid #ffdc00;
-	margin: 0 6.8% 10px 6.8%;
+	margin: 0 0 10px 0;
 }
 
 .scoreTitle {
@@ -103,7 +90,6 @@ button {
 }
 
 .attkBtn {
-	margin: 0 20px 0 6.8%;
 	float: left;
 }
 
@@ -149,7 +135,7 @@ button {
 .instructions {
 	text-align: center;
 	background-color: #FFDC00;
-	margin: 0 6.8% 10px 6.8%;
+	margin: 0 0 10px 0;
 	font-size: 20pt;
 	color: #111111;
 	font-family: 'Days One', sans-serif;
