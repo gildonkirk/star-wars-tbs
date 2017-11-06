@@ -34,12 +34,24 @@ header {
 	background-color: #111111;
 	color: #FFDC00;
 	padding: .25em 0;
+	font-family: 'Nunito', sans-serif;
+	border-radius: 2px;
+}
+
+.heroParent .imgLabel {
+	background-color: #00ED5F;
+	color: #111111;
+}
+
+.villainParent .imgLabel {
+	background-color: #ED022E;
+	color: #111111;
 }
 
 .title {
 	background-color: #ffdc00;
 	text-align: center;
-	font-family: 'Yantramanav', sans-serif;
+	font-family: 'Nunito', sans-serif;
 	color: #111111;
 	font-size: 16pt;
 	margin-bottom: 10px;
@@ -100,7 +112,7 @@ button {
 	color: #FFDC00;
 	margin-top: 10px;
 	text-align: center;
-	background: rgba(17, 17, 17, .85);
+	background: rgba(17, 17, 17, .95);
   padding: 3em;
   margin: 10% 26%;
 }
@@ -124,10 +136,11 @@ button {
 	text-align: center;
 	background: rgba(255, 220, 0, .95);
 	margin: 0 0 25px 0;
-	font-size: 14pt;
+	font-size: 18pt;
 	color: #111111;
-	padding: 1em 0;
+	padding: .5em 0;
 	border-radius: 2px;
+	font-family: 'Nunito', sans-serif;
 }
 
 .char {
@@ -136,17 +149,20 @@ button {
 
 .villainToAttack {
 	border: 6px solid #ED022E;
+	margin-bottom: 5px;
+	border-radius: 2px;
 }
 
 .hero {
 	border: 6px solid #00ED5F;
+	border-radius: 2px;
 }
 
 .heroParent {
-	margin: 0 0 0 30px;
+	margin: 0;
 }
 
-.attkBtn {
+.attkBtn, .gameOverButton {
 	border: none;
 	border-radius: 2px;
 	margin: 0 auto;
@@ -154,15 +170,21 @@ button {
 	outline: none;
 	margin-left: 20px;
 	padding: 1em 0;
+	font-family: 'Nunito', sans-serif;
 }
 
-.attkBtn:hover {
+.attkBtn:hover, .gameOverButton:hover {
 	background-color: #00993D;
 	color: #eeeeee;
+	font-family: 'Nunito', sans-serif;
 }
 
-.attkBtn:focus {
+.attkBtn:focus, .gameOverButton:focus {
 	outline: none;
+}
+
+.gameOverButton {
+	margin: 0 auto;
 }
 
 .img-hover img {
@@ -181,11 +203,3 @@ button {
     -o-transform:translatZ(0) scale(1.10); /* Opera */
     transform:translatZ(0) scale(1.10);
 }
-
-
-/*@media screen and (max-width: 1212px) {
-	.char {
-		width: 50%;
-		margin-left: 80px;
-	}
-}*/

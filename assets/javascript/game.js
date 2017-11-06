@@ -92,6 +92,8 @@ function enemyChoosing() {
 		$('.villain').parent().addClass('img-hover');
 		var defenderChoice = $(event.target);
 		$(defenderChoice).addClass('villainToAttack');
+		$('.charImg').removeClass('villainParent');
+		$(event.target).parent().addClass('villainParent');
 		if (defenderChoice.is('#luke')) {
 			var defenderChoice = luke;
 			$('.villainNameTitle').text('Luke');
@@ -122,7 +124,7 @@ function enemyChoosing() {
 		$('.villainScore').html(`${villainHealth}`);
 		$('.villainAttack').html(`${caPower}`);
 		$('.attkBtn').show();
-		$('.instructions').html('When you attack, the enemy will respond!');
+		$('.instructions').html('When you attack, the enemy will respond.<br>However, the longer you survive, the stronger you become!');
 		$('.enemies').prepend($('.villainToAttack').parent());
 		$('.villainToAttack').parent().removeClass('img-hover');
 	});
@@ -190,7 +192,7 @@ function restartGame() {
 		$('.charSelect').append($('.charImg'));
 		$('.char').removeClass('hero').removeClass('villain').removeClass('villainToAttack');
 		$('.char').addClass('avail');
-		$('.charImg').addClass('img-hover').removeClass('col-sm-4').addClass('col-sm-3').removeClass('heroParent');
+		$('.charImg').addClass('img-hover').removeClass('col-sm-4').addClass('col-sm-3').removeClass('heroParent').removeClass('villainParent');
 		$('.instructions').text('Choose Your Hero');
 		$('.villainNameTitle').text('Villain');
 		$('.heroNameTitle').text('Hero');
