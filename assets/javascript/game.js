@@ -27,10 +27,13 @@ var villainHealth = 0;
 var characterChosen = false;
 var enemyChosen = false;
 var enemiesBeaten = 0;
-$('.attkBtn').hide();
-$('.charContain').hide();
-$('.enemyContain').hide();
-$('.scoreContainer').hide();
+$(document).ready(function() {
+	$('.attkBtn').hide();
+	// $('.charContain').hide();
+	// $('.enemyContain').hide();
+	// $('.scoreContainer').hide();
+});
+
 characterChoosing();
 enemyChoosing();
 battle();

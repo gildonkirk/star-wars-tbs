@@ -147,6 +147,10 @@ button {
 	border: 6px solid #ED022E;
 }
 
+.hero {
+	border: 6px solid #00ED5F;
+}
+
 .img-hover img {
     -webkit-transition: all .3s ease; /* Safari and Chrome */
   	-moz-transition: all .3s ease; /* Firefox */
