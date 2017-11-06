@@ -29,9 +29,9 @@ var enemyChosen = false;
 var enemiesBeaten = 0;
 $(document).ready(function() {
 	$('.attkBtn').hide();
-	// $('.charContain').hide();
-	// $('.enemyContain').hide();
-	// $('.scoreContainer').hide();
+	$('.charContain').hide();
+	$('.enemyContain').hide();
+	$('.scoreContainer').hide();
 });
 
 characterChoosing();
