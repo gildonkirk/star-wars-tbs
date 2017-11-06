@@ -8,7 +8,7 @@ var obiWan = {
 	attack: 8,
 	ca: 10
 };
-var mal = {
+var vader = {
 	hp: 220,
 	attack: 5,
 	ca: 40
@@ -51,28 +51,28 @@ function characterChoosing() {
 		$(characterChoice).parent().removeClass('img-hover');
 		if (characterChoice.is('#luke')) {
 			$('#obiWan').addClass('villain');
-			$('#mal').addClass('villain');
+			$('#vader').addClass('villain');
 			$('#sidious').addClass('villain');
 			$('.villain').parent().appendTo('.enemies')
 			$('.heroNameTitle').text('Luke');
 			var characterChoice = luke;
 		} else if (characterChoice.is('#obiWan')) {
 			$('#luke').addClass('villain');
-			$('#mal').addClass('villain');
+			$('#vader').addClass('villain');
 			$('#sidious').addClass('villain');
 			$('.villain').parent().appendTo('.enemies')
 			$('.heroNameTitle').text('Obi Wan');
 			var characterChoice = obiWan;
-		} else if (characterChoice.is('#mal')) {
+		} else if (characterChoice.is('#vader')) {
 			$('#obiWan').addClass('villain');
 			$('#luke').addClass('villain');
 			$('#sidious').addClass('villain');
 			$('.villain').parent().appendTo('.enemies')
-			$('.heroNameTitle').text('Darth Mal');
-			var characterChoice = mal;
+			$('.heroNameTitle').text('Darth Vader');
+			var characterChoice = vader;
 		} else {
 			$('#obiWan').addClass('villain');
-			$('#mal').addClass('villain');
+			$('#vader').addClass('villain');
 			$('#luke').addClass('villain');
 			$('.villain').parent().appendTo('.enemies')
 			$('.heroNameTitle').text('Darth Sidious');
@@ -96,17 +96,17 @@ function enemyChoosing() {
 			var defenderChoice = luke;
 			$('.villainNameTitle').text('Luke');
 			$('#obiWan').removeClass('villainToAttack');
-			$('#mal').removeClass('villainToAttack');
+			$('#vader').removeClass('villainToAttack');
 			$('#sidious').removeClass('villainToAttack');
 		} else if (defenderChoice.is('#obiWan')) {
 			var defenderChoice = obiWan;
 			$('.villainNameTitle').text('Obi Wan');
 			$('#luke').removeClass('villainToAttack');
-			$('#mal').removeClass('villainToAttack');
+			$('#vader').removeClass('villainToAttack');
 			$('#sidious').removeClass('villainToAttack');
-		} else if (defenderChoice.is('#mal')) {
-			var defenderChoice = mal;
-			$('.villainNameTitle').text('Darth Mal');
+		} else if (defenderChoice.is('#vader')) {
+			var defenderChoice = vader;
+			$('.villainNameTitle').text('Darth Vader');
 			$('#obiWan').removeClass('villainToAttack');
 			$('#luke').removeClass('villainToAttack');
 			$('#sidious').removeClass('villainToAttack');
@@ -114,7 +114,7 @@ function enemyChoosing() {
 			var defenderChoice = sidious;
 			$('.villainNameTitle').text('Darth Sidious');
 			$('#obiWan').removeClass('villainToAttack');
-			$('#mal').removeClass('villainToAttack');
+			$('#vader').removeClass('villainToAttack');
 			$('#luke').removeClass('villainToAttack');
 		};
 		caPower = defenderChoice.ca;
