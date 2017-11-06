@@ -44,7 +44,7 @@ function characterChoosing() {
 		$('.yourChar').append($(event.target).parent());
 		$('.avail').removeClass('avail');
 		$(characterChoice).addClass('hero');
-
+		$(characterChoice).parent().removeClass('img-hover');
 		if (characterChoice.is('#luke')) {
 			$('#obiWan').addClass('villain');
 			$('#mal').addClass('villain');
@@ -53,21 +53,24 @@ function characterChoosing() {
 			$('.heroNameTitle').text('Luke');
 			var characterChoice = luke;
 		} else if (characterChoice.is('#obiWan')) {
-			$('#luke').addClass('villain').appendTo('.enemies');
-			$('#mal').addClass('villain').appendTo('.enemies');
-			$('#sidious').addClass('villain').appendTo('.enemies');
+			$('#luke').addClass('villain');
+			$('#mal').addClass('villain');
+			$('#sidious').addClass('villain');
+			$('.villain').parent().appendTo('.enemies')
 			$('.heroNameTitle').text('Obi Wan');
 			var characterChoice = obiWan;
 		} else if (characterChoice.is('#mal')) {
-			$('#obiWan').addClass('villain').appendTo('.enemies');
-			$('#luke').addClass('villain').appendTo('.enemies');
-			$('#sidious').addClass('villain').appendTo('.enemies');
+			$('#obiWan').addClass('villain');
+			$('#luke').addClass('villain');
+			$('#sidious').addClass('villain');
+			$('.villain').parent().appendTo('.enemies')
 			$('.heroNameTitle').text('Darth Mal');
 			var characterChoice = mal;
 		} else {
-			$('#obiWan').addClass('villain').appendTo('.enemies');
-			$('#mal').addClass('villain').appendTo('.enemies');
-			$('#luke').addClass('villain').appendTo('.enemies');
+			$('#obiWan').addClass('villain');
+			$('#mal').addClass('villain');
+			$('#luke').addClass('villain');
+			$('.villain').parent().appendTo('.enemies')
 			$('.heroNameTitle').text('Darth Sidious');
 			var characterChoice = sidious;
 		};
@@ -81,6 +84,7 @@ function characterChoosing() {
 
 function enemyChoosing() {
 	$(document).on('click', '.villain', function(event){
+		$('.villain').parent().addClass('img-hover');
 		var defenderChoice = $(event.target);
 		$(defenderChoice).addClass('villainToAttack');
 		if (defenderChoice.is('#luke')) {
@@ -115,6 +119,7 @@ function enemyChoosing() {
 		$('.attkBtn').show();
 		$('.instructions').html('When you attack, the enemy will respond!');
 		$('.enemies').prepend($('.villainToAttack').parent());
+		$('.villainToAttack').parent().removeClass('img-hover');
 	});
 };
 
@@ -178,6 +183,7 @@ function restartGame() {
 		$('.charSelect').append($('.char'));
 		$('.char').removeClass('hero').removeClass('villain').removeClass('villainToAttack');
 		$('.char').addClass('avail');
+		$('.char').parent().addClass('img-hover');
 		$('.instructions').text('Choose Your Hero');
 		$('.villainNameTitle').text('Villain');
 		$('.heroNameTitle').text('Hero');
