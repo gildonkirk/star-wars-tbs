@@ -148,7 +148,7 @@ function battle() {
 
 function villainDead() {
 	if(heroHealth > 0 && villainHealth <= 0) {
-		$('.villainToAttack').hide();
+		$('.villainToAttack').parent().hide();
 		$('.villainToAttack').removeClass('.villainToAttack');
 		enemiesBeaten++;
 		gameOverWin();
@@ -179,11 +179,11 @@ function restartGame() {
 		$('.gameOverModal').hide();
 		$('.instructions').show();
 		$('.gameContainer').show();
-		$('.char').show();
-		$('.charSelect').append($('.char'));
+		$('.charImg').show();
+		$('.charSelect').append($('.charImg'));
 		$('.char').removeClass('hero').removeClass('villain').removeClass('villainToAttack');
 		$('.char').addClass('avail');
-		$('.char').parent().addClass('img-hover');
+		$('.charImg').addClass('img-hover');
 		$('.instructions').text('Choose Your Hero');
 		$('.villainNameTitle').text('Villain');
 		$('.heroNameTitle').text('Hero');
@@ -191,5 +191,9 @@ function restartGame() {
 		$('.heroAttack').text(0);
 		$('.villainScore').text(0);
 		$('.villainAttack').text(0);
+		$('.attkBtn').hide();
+		$('.charContain').hide();
+		$('.enemyContain').hide();
+		$('.scoreContainer').hide();
 	})
 }
