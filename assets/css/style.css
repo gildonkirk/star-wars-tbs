@@ -18,8 +18,14 @@ header {
 	color: #FFDC00;
 }
 
-.defender {
-	margin-bottom: 10px;
+.charImg {
+	text-align: center;
+}
+
+.imgLabel {
+	background-color: #111111;
+	color: #FFDC00;
+	padding: .25em 0;
 }
 
 .title {
@@ -30,10 +36,6 @@ header {
 	font-size: 16pt;
 	margin-bottom: 10px;
 	padding: 5px 0;
-}
-
-.hero {
-	margin-bottom: 10px;
 }
 
 .health {
@@ -122,10 +124,6 @@ button {
 	width: 30%
 }
 
-.villain {
-	margin-bottom: 10px;
-}
-
 .charName {
 	font-size: 20pt;
 	color: #FFDC00;
@@ -139,6 +137,14 @@ button {
 	font-size: 20pt;
 	color: #111111;
 	font-family: 'Days One', sans-serif;
+}
+
+.char {
+	margin: 0 0 10px 0;
+}
+
+.villainToAttack {
+	border: 6px solid #ED022E;
 }
 
 

@@ -41,14 +41,15 @@ function characterChoosing() {
 		$('.enemyContain').show();
 		$('.scoreContainer').show();
 		var characterChoice = $(event.target);
-		$('.yourChar').append(characterChoice);
+		$('.yourChar').append($(event.target).parent());
 		$('.avail').removeClass('avail');
 		$(characterChoice).addClass('hero');
 
 		if (characterChoice.is('#luke')) {
-			$('#obiWan').addClass('villain').appendTo('.enemies');
-			$('#mal').addClass('villain').appendTo('.enemies');
-			$('#sidious').addClass('villain').appendTo('.enemies');
+			$('#obiWan').addClass('villain');
+			$('#mal').addClass('villain');
+			$('#sidious').addClass('villain');
+			$('.villain').parent().appendTo('.enemies')
 			$('.heroNameTitle').text('Luke');
 			var characterChoice = luke;
 		} else if (characterChoice.is('#obiWan')) {
@@ -113,7 +114,7 @@ function enemyChoosing() {
 		$('.villainAttack').html(`${caPower}`);
 		$('.attkBtn').show();
 		$('.instructions').html('When you attack, the enemy will respond!');
-
+		$('.enemies').prepend($('.villainToAttack').parent());
 	});
 };
 
