@@ -18,6 +18,12 @@ header {
 	color: #FFDC00;
 }
 
+.gameContainer {
+	padding-top: 15px;
+	padding-bottom: 8px;
+	background: rgba(17, 17, 17, .7);
+}
+
 .charImg {
 	text-align: center;
 }
@@ -60,17 +66,13 @@ button {
 }
 
 .scoreContainer {
-	border: 3px solid #ffdc00;
+	/*border: 3px solid #ffdc00;*/
 	margin: 0 0 10px 0;
 }
 
 .scoreTitle {
 	margin: 0;
 	font-size: 16pt;
-}
-
-.scoreContainer {
-	background-color: #111111;
 }
 
 .scoreHeader {
@@ -89,21 +91,6 @@ button {
 	color: #ffffff;
 	font-size: 16pt;
 	margin-bottom: 7px;
-}
-
-.attkBtn {
-	float: left;
-}
-
-.hpContainer {
-	border: 1px solid #ffdc00;
-	background-color: #111111;
-}
-
-.hpContainerHero {
-	float: left;
-	margin: 0 15px 0 0;
-	width: 50%
 }
 
 .gameOverModal {
@@ -149,6 +136,21 @@ button {
 
 .hero {
 	border: 6px solid #00ED5F;
+}
+
+.heroParent {
+	margin: 0 0 0 30px;
+}
+
+.btn {
+	margin: 0 auto;
+	background-color: #00ED5F;
+	outline: none;
+}
+
+.btn:hover {
+	background-color: #00993D;
+	color: #eeeeee;
 }
 
 .img-hover img {

@@ -51,22 +51,26 @@
 			</div>
 
 			<!-- Holds Scoring -->
-			<div class="scoreContainer">
-				<p class="title scoreTitle col-sm-12">Score</p>
-				<div class="hpContainer hpContainerHero">
-					<div class="scoreTextContainer heroNameTextContainer">
-						<p class="heroNameTitle scoreHeader charName">Hero</p>
+			<div class="scoreContainer row">
+				<div class="col-sm-6 hpContainer hpContainerHero">
+					<div class="scoreTextContainer heroNameTextContainer row">
+						<p class="heroNameTitle scoreHeader charName col-sm-12">Hero</p>
 					</div>
-					<div class="scoreTextContainer heroHpTextContainer">
-						<p class="heroScoreTitle scoreHeader">Hero HP:</p>
-						<p class="score heroScore">0</p>
-					</div>
-					<div class="scoreTextContainer heroAttackTextContainer">
-						<p class="heroAttackTitle scoreHeader">Hero Attack:</p>
-						<p class="score heroAttack">0</p>
+					<div class="row">
+						<div class="scoreTextContainer heroHpTextContainer col-sm-12">
+							<p class="heroScoreTitle scoreHeader">Hero HP:</p>
+							<p class="score heroScore">0</p>
+						</div>
+						<div class="scoreTextContainer heroAttackTextContainer col-sm-12">
+							<p class="heroAttackTitle scoreHeader">Hero Attack:</p>
+							<p class="score heroAttack">0</p>
+						</div>
+						<div class="col-sm-10">
+							<button class="attkBtn btn col-sm-8">Attack</button>
+						</div>
 					</div>
 				</div>
-				<div class="hpContainer hpContainerVillain">
+				<div class="hpContainer hpContainerVillain col-sm-6">
 					<div class="scoreTextContainer villainNameTextContainer">
 						<p class="villainNameTitle scoreHeader charName">Villain</p>
 					</div>
@@ -80,7 +84,6 @@
 					</div>
 				</div>
 			</div>
-			<button class="attkBtn">Attack</button>
 		</div>
 	</div>
 

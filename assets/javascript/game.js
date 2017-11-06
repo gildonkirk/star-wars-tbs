@@ -44,7 +44,8 @@ function characterChoosing() {
 		$('.enemyContain').show();
 		$('.scoreContainer').show();
 		var characterChoice = $(event.target);
-		$('.yourChar').append($(event.target).parent());
+		$('.yourChar').prepend($(event.target).parent());
+		$(event.target).parent().addClass('heroParent');
 		$('.avail').removeClass('avail');
 		$(characterChoice).addClass('hero');
 		$(characterChoice).parent().removeClass('img-hover');
@@ -77,6 +78,7 @@ function characterChoosing() {
 			$('.heroNameTitle').text('Darth Sidious');
 			var characterChoice = sidious;
 		};
+		$('.charImg').removeClass('col-sm-3').addClass('col-sm-4');
 		attackPower = characterChoice.attack;
 		heroHealth = characterChoice.hp;
 		$('.heroScore').html(`${heroHealth}`);
@@ -151,6 +153,8 @@ function battle() {
 
 function villainDead() {
 	if(heroHealth > 0 && villainHealth <= 0) {
+		$('.villainNameTitle').text('Villain');
+		$('.villainAttack').text(0);
 		$('.villainToAttack').parent().hide();
 		$('.villainToAttack').removeClass('.villainToAttack');
 		enemiesBeaten++;
@@ -186,7 +190,7 @@ function restartGame() {
 		$('.charSelect').append($('.charImg'));
 		$('.char').removeClass('hero').removeClass('villain').removeClass('villainToAttack');
 		$('.char').addClass('avail');
-		$('.charImg').addClass('img-hover');
+		$('.charImg').addClass('img-hover').removeClass('col-sm-4').addClass('col-sm-3').removeClass('heroParent');
 		$('.instructions').text('Choose Your Hero');
 		$('.villainNameTitle').text('Villain');
 		$('.heroNameTitle').text('Hero');
