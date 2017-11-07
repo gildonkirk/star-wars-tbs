@@ -45,7 +45,7 @@ function characterChoosing() {
 		$('.scoreContainer').show();
 		var characterChoice = $(event.target);
 		$('.yourChar').prepend($(event.target).parent());
-		$(event.target).parent().addClass('heroParent');
+		$(event.target).parent().addClass('heroParent col-12 col-md-6 col-lg-4').removeClass('col-4');
 		$('.avail').removeClass('avail');
 		$(characterChoice).addClass('hero');
 		$(characterChoice).parent().removeClass('img-hover');
@@ -78,7 +78,7 @@ function characterChoosing() {
 			$('.heroNameTitle').text('Darth Sidious');
 			var characterChoice = sidious;
 		};
-		$('.charImg').removeClass('col-sm-3').addClass('col-sm-4');
+		$('.charImg').removeClass('col-sm-3').addClass('col-4');
 		attackPower = characterChoice.attack;
 		heroHealth = characterChoice.hp;
 		$('.heroScore').html(`${heroHealth}`);
@@ -173,7 +173,7 @@ function villainDead() {
 
 function gameOverLose() {
 	if(villainHealth > 0 && heroHealth <= 0){
-		$('.gameContainer').after('<div class="gameOverModal youLose"><p class="gameOverText">You Lose!</p><button class="gameOverButton">Play Again?</button></div>');
+		$('.gameContainer').after('<div class="container"><div class="row gameOverModal youLose"><p class="col-12 gameOverText">You Lose!</p><button class="gameOverButton col-12 col-md-6">Play Again?</button></div></div>');
 		$('.gameContainer').hide();
 		$('.instructions').hide();
 		restartGame();
@@ -182,7 +182,7 @@ function gameOverLose() {
 
 function gameOverWin() {
 	if(heroHealth > 0 && villainHealth <= 0 && enemiesBeaten === 3){
-		$('.gameContainer').after('<div class="gameOverModal youWin"><p class="gameOverText">You Win!</p><button class="gameOverButton">Play Again?</button></div>');
+		$('.gameContainer').after('<div class="container"><div class="row gameOverModal youWin"><p class="col-12 gameOverText">You Win!</p><button class="gameOverButton col-12 col-md-6">Play Again?</button></div></div>');
 		$('.gameContainer').hide();
 		$('.instructions').hide();
 		restartGame();
@@ -196,9 +196,10 @@ function restartGame() {
 		$('.gameContainer').show();
 		$('.charImg').show();
 		$('.charSelect').append($('.charImg'));
-		$('.char').removeClass('hero').removeClass('villain').removeClass('villainToAttack');
+		$('.char').removeClass('hero villain villainToAttack');
 		$('.char').addClass('avail');
-		$('.charImg').addClass('img-hover').removeClass('col-sm-4').addClass('col-sm-3').removeClass('heroParent').removeClass('villainParent');
+		$('.heroParent').removeClass('col-12 col-md-6 col-lg-4').addClass('col-4');
+		$('.charImg').addClass('img-hover col-sm-3').removeClass('col-sm-4 heroParent villainParent');
 		$('.instructions').text('Choose Your Hero');
 		$('.villainNameTitle').text('Villain');
 		$('.heroNameTitle').text('Hero');

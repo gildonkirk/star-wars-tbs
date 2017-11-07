@@ -110,11 +110,10 @@ button {
 
 .gameOverModal {
 	color: #FFDC00;
-	margin-top: 10px;
 	text-align: center;
 	background: rgba(17, 17, 17, .95);
-  padding: 3em;
-  margin: 10% 26%;
+	padding: 2em 2em 3em 2em;
+  margin: 13% 0;
 }
 
 .gameOverText {
