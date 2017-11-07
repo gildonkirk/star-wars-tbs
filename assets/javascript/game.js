@@ -24,9 +24,9 @@ var caPower = 0;
 var attackPower = 0;
 var heroHealth = 0;
 var villainHealth = 0;
-var characterChosen = false;
-var enemyChosen = false;
+var battling = false;
 var enemiesBeaten = 0;
+
 $(document).ready(function() {
 	$('.attkBtn').hide();
 	$('.charContain').hide();
@@ -89,49 +89,53 @@ function characterChoosing() {
 
 function enemyChoosing() {
 	$(document).on('click', '.villain', function(event){
-		$('.villain').parent().addClass('img-hover');
-		var defenderChoice = $(event.target);
-		$(defenderChoice).addClass('villainToAttack');
-		$('.charImg').removeClass('villainParent');
-		$(event.target).parent().addClass('villainParent');
-		if (defenderChoice.is('#luke')) {
-			var defenderChoice = luke;
-			$('.villainNameTitle').text('Luke');
-			$('#obiWan').removeClass('villainToAttack');
-			$('#vader').removeClass('villainToAttack');
-			$('#sidious').removeClass('villainToAttack');
-		} else if (defenderChoice.is('#obiWan')) {
-			var defenderChoice = obiWan;
-			$('.villainNameTitle').text('Obi Wan');
-			$('#luke').removeClass('villainToAttack');
-			$('#vader').removeClass('villainToAttack');
-			$('#sidious').removeClass('villainToAttack');
-		} else if (defenderChoice.is('#vader')) {
-			var defenderChoice = vader;
-			$('.villainNameTitle').text('Darth Vader');
-			$('#obiWan').removeClass('villainToAttack');
-			$('#luke').removeClass('villainToAttack');
-			$('#sidious').removeClass('villainToAttack');
-		} else {
-			var defenderChoice = sidious;
-			$('.villainNameTitle').text('Darth Sidious');
-			$('#obiWan').removeClass('villainToAttack');
-			$('#vader').removeClass('villainToAttack');
-			$('#luke').removeClass('villainToAttack');
-		};
-		caPower = defenderChoice.ca;
-		villainHealth = defenderChoice.hp;
-		$('.villainScore').html(`${villainHealth}`);
-		$('.villainAttack').html(`${caPower}`);
-		$('.attkBtn').show();
-		$('.instructions').html('When you attack, the enemy will strike back!');
-		$('.enemies').prepend($('.villainToAttack').parent());
-		$('.villainToAttack').parent().removeClass('img-hover');
+		if (battling === false) {
+			$('.villain').parent().addClass('img-hover');
+			var defenderChoice = $(event.target);
+			$(defenderChoice).addClass('villainToAttack');
+			$('.charImg').removeClass('villainParent');
+			$(event.target).parent().addClass('villainParent');
+			if (defenderChoice.is('#luke')) {
+				var defenderChoice = luke;
+				$('.villainNameTitle').text('Luke');
+				$('#obiWan').removeClass('villainToAttack');
+				$('#vader').removeClass('villainToAttack');
+				$('#sidious').removeClass('villainToAttack');
+			} else if (defenderChoice.is('#obiWan')) {
+				var defenderChoice = obiWan;
+				$('.villainNameTitle').text('Obi Wan');
+				$('#luke').removeClass('villainToAttack');
+				$('#vader').removeClass('villainToAttack');
+				$('#sidious').removeClass('villainToAttack');
+			} else if (defenderChoice.is('#vader')) {
+				var defenderChoice = vader;
+				$('.villainNameTitle').text('Darth Vader');
+				$('#obiWan').removeClass('villainToAttack');
+				$('#luke').removeClass('villainToAttack');
+				$('#sidious').removeClass('villainToAttack');
+			} else {
+				var defenderChoice = sidious;
+				$('.villainNameTitle').text('Darth Sidious');
+				$('#obiWan').removeClass('villainToAttack');
+				$('#vader').removeClass('villainToAttack');
+				$('#luke').removeClass('villainToAttack');
+			};
+			caPower = defenderChoice.ca;
+			villainHealth = defenderChoice.hp;
+			$('.villainScore').html(`${villainHealth}`);
+			$('.villainAttack').html(`${caPower}`);
+			$('.attkBtn').show();
+			$('.instructions').html('When you attack, the enemy will strike back!');
+			$('.enemies').prepend($('.villainToAttack').parent());
+			$('.villainToAttack').parent().removeClass('img-hover');
+		}
 	});
 };
 
 function battle() {
 	$('.attkBtn').on('click', function (){
+		battling = true;
+		$('.villain').parent().removeClass('img-hover');
 		if(villainHealth > 0 && heroHealth > 0){
 			villainHealth = villainHealth - attackPower;
 			if(villainHealth < 0) {
@@ -160,7 +164,9 @@ function villainDead() {
 		$('.villainToAttack').parent().hide();
 		$('.villainToAttack').removeClass('.villainToAttack');
 		enemiesBeaten++;
+		battling = false;
 		gameOverWin();
+		$('.villain').parent().addClass('img-hover');
 		enemyChoosing();
 	}
 }
@@ -204,5 +210,7 @@ function restartGame() {
 		$('.charContain').hide();
 		$('.enemyContain').hide();
 		$('.scoreContainer').hide();
+		battling = false;
+		enemiesBeaten = 0;
 	})
 }
