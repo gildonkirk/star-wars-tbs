@@ -45,7 +45,6 @@ function characterChoosing() {
 		$('.scoreContainer').show();
 		var characterChoice = $(event.target);
 		$('.yourChar').prepend($(event.target).parent());
-		$(event.target).parent().addClass('heroParent col-12 col-md-6 col-lg-4').removeClass('col-4');
 		$('.avail').removeClass('avail');
 		$(characterChoice).addClass('hero');
 		$(characterChoice).parent().removeClass('img-hover');
@@ -53,36 +52,37 @@ function characterChoosing() {
 			$('#obiWan').addClass('villain');
 			$('#vader').addClass('villain');
 			$('#sidious').addClass('villain');
-			$('.villain').parent().appendTo('.enemies')
+			$('.villain').parent().prependTo('.enemies')
 			$('.heroNameTitle').text('Luke');
 			var characterChoice = luke;
 		} else if (characterChoice.is('#obiWan')) {
 			$('#luke').addClass('villain');
 			$('#vader').addClass('villain');
 			$('#sidious').addClass('villain');
-			$('.villain').parent().appendTo('.enemies')
+			$('.villain').parent().prependTo('.enemies')
 			$('.heroNameTitle').text('Obi Wan');
 			var characterChoice = obiWan;
 		} else if (characterChoice.is('#vader')) {
 			$('#obiWan').addClass('villain');
 			$('#luke').addClass('villain');
 			$('#sidious').addClass('villain');
-			$('.villain').parent().appendTo('.enemies')
+			$('.villain').parent().prependTo('.enemies')
 			$('.heroNameTitle').text('Darth Vader');
 			var characterChoice = vader;
 		} else {
 			$('#obiWan').addClass('villain');
 			$('#vader').addClass('villain');
 			$('#luke').addClass('villain');
-			$('.villain').parent().appendTo('.enemies')
+			$('.villain').parent().prependTo('.enemies')
 			$('.heroNameTitle').text('Darth Sidious');
 			var characterChoice = sidious;
 		};
-		$('.charImg').removeClass('col-sm-3').addClass('col-4');
+		$('.charImg').removeClass('col-sm-3').addClass('col-md-4');
+		$(event.target).parent().addClass('heroParent col-12').removeClass('col-md-4 col-6');
 		attackPower = characterChoice.attack;
 		heroHealth = characterChoice.hp;
-		$('.heroScore').html(`${heroHealth}`);
-		$('.heroAttack').html(`${attackPower}`);
+		$('.heroScore').text(`HP: ${heroHealth}`);
+		$('.heroAttack').text(`Attack: ${attackPower}`);
 		$('.instructions').text('Choose Your Villain');
 	})
 };
@@ -90,11 +90,11 @@ function characterChoosing() {
 function enemyChoosing() {
 	$(document).on('click', '.villain', function(event){
 		if (battling === false) {
-			$('.villain').parent().addClass('img-hover');
+			$('.villain').parent().removeClass('col-md-4 col-12').addClass('img-hover col-6');
 			var defenderChoice = $(event.target);
 			$(defenderChoice).addClass('villainToAttack');
 			$('.charImg').removeClass('villainParent');
-			$(event.target).parent().addClass('villainParent');
+			$(event.target).parent().addClass('villainParent col-12').removeClass('col-6 col-md-4');
 			if (defenderChoice.is('#luke')) {
 				var defenderChoice = luke;
 				$('.villainNameTitle').text('Luke');
@@ -122,10 +122,11 @@ function enemyChoosing() {
 			};
 			caPower = defenderChoice.ca;
 			villainHealth = defenderChoice.hp;
-			$('.villainScore').html(`${villainHealth}`);
-			$('.villainAttack').html(`${caPower}`);
+			$('.villainScore').text(`HP: ${villainHealth}`);
+			$('.villainAttack').text(`Counter Attack: ${caPower}`);
 			$('.attkBtn').show();
 			$('.instructions').html('When you attack, the enemy will strike back!');
+			$('.enemies').append($('.villain').parent());
 			$('.enemies').prepend($('.villainToAttack').parent());
 			$('.villainToAttack').parent().removeClass('img-hover');
 		}
@@ -198,8 +199,8 @@ function restartGame() {
 		$('.charSelect').append($('.charImg'));
 		$('.char').removeClass('hero villain villainToAttack');
 		$('.char').addClass('avail');
-		$('.heroParent').removeClass('col-12 col-md-6 col-lg-4').addClass('col-4');
-		$('.charImg').addClass('img-hover col-sm-3').removeClass('col-sm-4 heroParent villainParent');
+		$('.heroParent').removeClass('col-12 col-md-6 col-lg-4');
+		$('.charImg').addClass('img-hover col-sm-3 col-6').removeClass('col-md-4 heroParent villainParent');
 		$('.instructions').text('Choose Your Hero');
 		$('.villainNameTitle').text('Villain');
 		$('.heroNameTitle').text('Hero');

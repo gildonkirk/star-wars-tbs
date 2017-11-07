@@ -9,9 +9,9 @@ body {
 
 header {
 	background-color: #111111;
-  font-size: 30pt;
-  padding: 13px 0;
-  margin-bottom: 20px;
+  font-size: 25pt;
+  padding: .25em 0;
+  margin-bottom: 5px;
 	width: 100%;
 	text-align: center;
 	font-family: 'Days One', sans-serif;
@@ -20,7 +20,7 @@ header {
 
 .gameContainer {
 	padding-top: 15px;
-	padding-bottom: 8px;
+	padding-bottom: 0;
 	background: rgba(17, 17, 17, .7);
 	border: 3px solid #FFDC00;
 	border-radius: 2px;
@@ -41,11 +41,13 @@ header {
 .heroParent .imgLabel {
 	background-color: #00ED5F;
 	color: #111111;
+	margin-bottom: 5px;
 }
 
 .villainParent .imgLabel {
 	background-color: #ED022E;
 	color: #111111;
+	margin-bottom: 5px;
 }
 
 .title {
@@ -106,6 +108,7 @@ button {
 	color: #ffffff;
 	font-size: 16pt;
 	margin-bottom: 7px;
+	line-height: 1;
 }
 
 .gameOverModal {
@@ -134,10 +137,10 @@ button {
 .instructions {
 	text-align: center;
 	background: rgba(255, 220, 0, .95);
-	margin: 0 0 25px 0;
-	font-size: 18pt;
+	margin: 0 0 -3px 0;
+	font-size: 16pt;
 	color: #111111;
-	padding: .5em 0;
+	padding: .25em 0;
 	border-radius: 2px;
 	font-family: 'Nunito', sans-serif;
 }
@@ -152,11 +155,6 @@ button {
 	border-radius: 2px;
 }
 
-.hero {
-	border: 6px solid #00ED5F;
-	border-radius: 2px;
-}
-
 .heroParent {
 	margin: 0;
 }
@@ -167,7 +165,6 @@ button {
 	margin: 0 auto;
 	background-color: #00ED5F;
 	outline: none;
-	margin-left: 20px;
 	padding: 1em 0;
 	font-family: 'Nunito', sans-serif;
 }
@@ -186,6 +183,12 @@ button {
 	margin: 0 auto;
 }
 
+.hero {
+	border: 6px solid #00ED5F;
+	border-radius: 2px;
+	margin-bottom: 5px;
+}
+
 .img-hover img {
     -webkit-transition: all .3s ease; /* Safari and Chrome */
   	-moz-transition: all .3s ease; /* Firefox */
@@ -201,4 +204,27 @@ button {
     -ms-transform:scale(1.10); /* IE 9 */
     -o-transform:translatZ(0) scale(1.10); /* Opera */
     transform:translatZ(0) scale(1.10);
+}
+
+@media screen and (max-width: 768px) {
+	.instructions {
+		margin-bottom: -3px;
+	}
+
+.instructions, .gameContainer {
+	border-radius: 0;
+}
+	header {
+		margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.instructions {
+		font-size: 12pt;
+	}
+
+	header {
+		margin-bottom: 0;
+	}
 }
