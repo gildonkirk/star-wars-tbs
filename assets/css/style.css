@@ -20,7 +20,7 @@ header {
 
 .gameContainer {
 	padding-top: 15px;
-	padding-bottom: 0;
+	padding-bottom: 15px;
 	background: rgba(17, 17, 17, .7);
 	border: 3px solid #FFDC00;
 	border-radius: 2px;
@@ -226,5 +226,9 @@ button {
 
 	header {
 		margin-bottom: 0;
+	}
+
+	.score {
+		font-size: 12pt;
 	}
 }

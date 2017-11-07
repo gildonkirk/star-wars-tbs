@@ -32,6 +32,7 @@ $(document).ready(function() {
 	$('.charContain').hide();
 	$('.enemyContain').hide();
 	$('.scoreContainer').hide();
+	$('unusedEnemies').hide();
 });
 
 characterChoosing();
@@ -42,6 +43,7 @@ function characterChoosing() {
 	$(document).on('click', '.avail', function (event){
 		$('.charContain').show();
 		$('.enemyContain').show();
+		$('.enemyData').hide();
 		$('.scoreContainer').show();
 		var characterChoice = $(event.target);
 		$('.yourChar').prepend($(event.target).parent());
@@ -90,11 +92,22 @@ function characterChoosing() {
 function enemyChoosing() {
 	$(document).on('click', '.villain', function(event){
 		if (battling === false) {
-			$('.villain').parent().removeClass('col-md-4 col-12').addClass('img-hover col-6');
+			$('.charImg').children().show();
+			$('.charImg').css('padding-left', '15px');
+			$('.charImg').css('padding-right', '15px');
+			$('.villain').parent().removeClass('col-md-4 col-6').addClass('img-hover col-12');
 			var defenderChoice = $(event.target);
 			$(defenderChoice).addClass('villainToAttack');
 			$('.charImg').removeClass('villainParent');
 			$(event.target).parent().addClass('villainParent col-12').removeClass('col-6 col-md-4');
+			if (enemiesBeaten < 2) {
+				$('.charContain').removeClass('col-6').addClass('col-5');
+				$('.enemyContain').removeClass('col-6').addClass('col-5');
+			} else {
+				$('.charContain').removeClass('col-5').addClass('col-6');
+				$('.enemyContain').removeClass('col-5').addClass('col-6');
+			}
+			$('.villain').parent().not('.villainParent').children('.imgLabel').hide();
 			if (defenderChoice.is('#luke')) {
 				var defenderChoice = luke;
 				$('.villainNameTitle').text('Luke');
@@ -122,13 +135,17 @@ function enemyChoosing() {
 			};
 			caPower = defenderChoice.ca;
 			villainHealth = defenderChoice.hp;
+			$('.enemyData').show();
 			$('.villainScore').text(`HP: ${villainHealth}`);
 			$('.villainAttack').text(`Counter Attack: ${caPower}`);
 			$('.attkBtn').show();
 			$('.instructions').html('When you attack, the enemy will strike back!');
-			$('.enemies').append($('.villain').parent());
+			$('.unusedEnemies').show();
+			$('.unusedEnemies').append($('.villain').parent().not('.villainParent'));
 			$('.enemies').prepend($('.villainToAttack').parent());
 			$('.villainToAttack').parent().removeClass('img-hover');
+			$('.unusedEnemies').children().css('padding', 0);
+			$('.unusedEnemies').css('padding-left', 0);
 		}
 	});
 };
@@ -142,18 +159,18 @@ function battle() {
 			if(villainHealth < 0) {
 				villainHealth = 0;
 			}
-			$('.villainScore').html(`${villainHealth}`);
+			$('.villainScore').html(`HP: ${villainHealth}`);
 			villainDead();
 			if(villainHealth > 0) {
 				heroHealth = heroHealth - caPower;
 				if(heroHealth < 0) {
 					heroHealth = 0;
 				}
-				$('.heroScore').html(`${heroHealth}`);
+				$('.heroScore').text(`HP: ${heroHealth}`);
 				gameOverLose();
 			}
 			attackPower = attackPower + attackPower;
-			$('.heroAttack').html(`${attackPower}`);
+			$('.heroAttack').text(`Attack: ${attackPower}`);
 		}
 	});
 };
@@ -168,6 +185,8 @@ function villainDead() {
 		battling = false;
 		gameOverWin();
 		$('.villain').parent().addClass('img-hover');
+		$('.enemyData').hide();
+		$('.attkBtn').hide();
 		enemyChoosing();
 	}
 }
@@ -209,9 +228,13 @@ function restartGame() {
 		$('.villainScore').text(0);
 		$('.villainAttack').text(0);
 		$('.attkBtn').hide();
-		$('.charContain').hide();
-		$('.enemyContain').hide();
+		$('.charContain').removeClass('col-5').addClass('col-6').hide();
+		$('.enemyContain').removeClass('col-5').addClass('col-6').hide();
 		$('.scoreContainer').hide();
+		$('.imgLabel').show();
+		$('.charImg').css('padding-left', '15px');
+		$('.charImg').css('padding-right', '15px');
+		$('.unusedEnemies').hide();
 		battling = false;
 		enemiesBeaten = 0;
 	})
