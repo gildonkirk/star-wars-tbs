@@ -187,6 +187,7 @@ function villainDead() {
 		$('.villain').parent().addClass('img-hover');
 		$('.enemyData').hide();
 		$('.attkBtn').hide();
+		$('.instructions').text('Choose Your Villain');
 		enemyChoosing();
 	}
 }
